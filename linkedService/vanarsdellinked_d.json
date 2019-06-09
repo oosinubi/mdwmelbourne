@@ -1,0 +1,15 @@
+{
+	"name": "vanarsdellinked_d",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://femiadlsv2.dfs.core.windows.net",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI0YzI2YzBjNS05OTBiLTQ1NzEtYjBhZC01OGMwNDdmMDM3NWMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "irvarasden1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

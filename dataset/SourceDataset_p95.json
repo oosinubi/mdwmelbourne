@@ -1,0 +1,35 @@
+{
+	"name": "SourceDataset_p95",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "fourthcoffeelinked_s",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "MovieActors.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MovieActorID",
+				"type": "String"
+			},
+			{
+				"name": "MovieID",
+				"type": "String"
+			},
+			{
+				"name": "ActorID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,27 @@
+{
+	"name": "DestinationDataset_i8u",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "vanarsdellinked_d",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_fileName": {
+				"type": "String"
+			}
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
+			},
+			"fileName": {
+				"value": "@dataset().cw_fileName",
+				"type": "Expression"
+			},
+			"folderPath": "vanarsdel"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

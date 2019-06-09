@@ -1,0 +1,31 @@
+{
+	"name": "SourceDataset_ewg",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "fourthcoffeelinked_s",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "OnlineMovieMappings.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MovieID",
+				"type": "String"
+			},
+			{
+				"name": "OnlineMovieID",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

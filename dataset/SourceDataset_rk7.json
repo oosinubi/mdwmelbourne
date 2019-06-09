@@ -1,0 +1,14 @@
+{
+	"name": "SourceDataset_rk7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "movieslinked_s",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DocumentDbCollection",
+		"typeProperties": {
+			"collectionName": "movies"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

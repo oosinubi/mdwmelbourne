@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_rk7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "movieslinked_d",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
+			},
+			"fileName": "moviesdata",
+			"folderPath": "movies"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

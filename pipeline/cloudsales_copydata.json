@@ -1,0 +1,107 @@
+{
+	"name": "cloudsales_copydata",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_kl0",
+				"type": "ForEach",
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_kl0",
+							"type": "Copy",
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "@{item().source.tableName}"
+								},
+								{
+									"name": "Destination",
+									"value": "cloudsales/@{item().destination.fileName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource"
+								},
+								"sink": {
+									"type": "AzureBlobFSSink"
+								},
+								"enableStaging": false
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_kl0",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_tableName": "@item().source.tableName"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_kl0",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_fileName": "@item().destination.fileName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"tableName": "[dbo].[Addresses]"
+						},
+						"destination": {
+							"fileName": "dbo.Addresses.CSV"
+						}
+					},
+					{
+						"source": {
+							"tableName": "[dbo].[Customers]"
+						},
+						"destination": {
+							"fileName": "dbo.Customers.CSV"
+						}
+					},
+					{
+						"source": {
+							"tableName": "[dbo].[OrderDetails]"
+						},
+						"destination": {
+							"fileName": "dbo.OrderDetails.CSV"
+						}
+					},
+					{
+						"source": {
+							"tableName": "[dbo].[Orders]"
+						},
+						"destination": {
+							"fileName": "dbo.Orders.CSV"
+						}
+					}
+				]
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

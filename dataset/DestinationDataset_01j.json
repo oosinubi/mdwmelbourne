@@ -1,0 +1,27 @@
+{
+	"name": "DestinationDataset_01j",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "cloudstreaminglinked_d",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_fileName": {
+				"type": "String"
+			}
+		},
+		"type": "AzureBlobFSFile",
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects"
+			},
+			"fileName": {
+				"value": "@dataset().cw_fileName",
+				"type": "Expression"
+			},
+			"folderPath": "cloudstreaming"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

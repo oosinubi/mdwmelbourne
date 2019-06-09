@@ -1,0 +1,47 @@
+{
+	"name": "SourceDataset_nql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "fourthcoffeelinked_s",
+			"type": "LinkedServiceReference"
+		},
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Movies.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MovieID",
+				"type": "String"
+			},
+			{
+				"name": "MovieTitle",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "Rating",
+				"type": "String"
+			},
+			{
+				"name": "RunTimeMin",
+				"type": "String"
+			},
+			{
+				"name": "ReleaseDate",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
